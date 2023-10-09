@@ -1,0 +1,483 @@
+$mapLayerBgColor: var(--mapLayerBgColor);
+$mapLayerTagColor: var(--mapLayerTagColor);
+$mapLayerTextColor: var(--mapLayerTextColor);
+$themeColor6: var(--themeColor6);
+$btnGradientColor1: var(--btnGradientColor1);
+$btnGradientColor2: var(--btnGradientColor2);
+$mainWhite: var(--mainWhite);
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.map {
+    height: 100%;
+    position: relative;
+    width: 100vw;
+
+    .guide-box {
+        animation: fadeIn .5s linear;
+        animation-fill-mode: both;
+        background-color: rgba(0, 0, 0, .2);
+        box-sizing: border-box;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        z-index: 4;
+
+        .icon-guide {
+            height: 200px;
+            left: 50%;
+            margin-top: 60px;
+            opacity: 0;
+            position: absolute;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            transition: opacity .5s ease-out;
+            width: 400px;
+
+            .inner {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .guide-text {
+            color: #fff;
+            display: block;
+            font-size: 28px;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
+
+.box-image {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.msg-box,
+.msg-box .mask {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.show {
+    animation: fadeIn .5s linear both;
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.box {
+    backdrop-filter: blur(6px);
+    border: 2px solid hsla(0, 0%, 100%, .2);
+    border-radius: 12px;
+    overflow: hidden;
+    position: absolute;
+    top: 204px;
+    width: 222px;
+
+    .top-box {
+        position: relative;
+        width: 100%;
+
+        .bg-color {
+            background-color: $mapLayerBgColor;
+            left: 0;
+            opacity: .8;
+        }
+
+        .bg-color,
+        .bg-image {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .content {
+            height: 100%;
+            position: relative;
+            width: 100%;
+        }
+
+        .tag {
+            background: rgba(0, 0, 0, .2);
+            border-radius: 0 12px 0 12px;
+            height: 40px;
+            padding: 0 12px;
+            position: absolute;
+            right: 0px;
+            top: 0;
+        }
+
+        .content .name,
+        .tag {
+            font-family: PingFang SC;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+        }
+
+        .content .name {
+            color: #fff;
+            padding-top: 24px;
+            text-align: center;
+        }
+
+        .content .verse-context {
+            margin-top: 24px;
+            padding-bottom: 48px;
+            width: 100%;
+        }
+
+        .content .verse-box {
+            display: flex;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .content .verse {
+            border-right: 1px solid hsla(0, 0%, 100%, .2);
+            color: #fff;
+            font-family: FZYaSongS-R-GB;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 8px;
+            line-height: 74px;
+            writing-mode: vertical-rl;
+        }
+
+        .content .verse:first-child {
+            border-left: 1px solid hsla(0, 0%, 100%, .2);
+        }
+
+        .content .verse2 .verse-left {
+            border-right: 1px solid hsla(0, 0%, 100%, .2);
+        }
+    }
+
+    .bottom-box {
+        background: #fcfcfc;
+        box-sizing: border-box;
+        padding: 16px 24px 32px;
+        width: 100%;
+
+        .price {
+            color: rgba(0, 0, 0, .6);
+            font-family: PingFang SC;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            margin: 0 auto;
+            width: max-content;
+            width: max-content;
+        }
+
+        .price .num {
+            color: rgba(0, 0, 0, .9);
+            font-family: DIN Alternate;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .price .unit {
+            color: rgba(0, 0, 0, .9);
+            font-family: PingFang SC;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 40px;
+        }
+
+        .progress {
+            align-items: center;
+            background: $mapLayerTagColor;
+            border-radius: 6px;
+            box-sizing: border-box;
+            display: flex;
+            display: flex;
+            height: 44px;
+            line-height: 44px;
+            margin-top: 12px;
+            position: relative;
+            width: 174px;
+        }
+
+        .progress .triple {
+            border: 10px solid transparent;
+            border-top: 10px solid $mapLayerTagColor;
+            bottom: -19px;
+            height: 0;
+            left: 78px;
+            position: absolute;
+            width: 0;
+        }
+
+        .progress .pic {
+            height: 20px;
+            margin-right: 4px;
+        }
+
+        .progress .text {
+            color: $mapLayerTextColor;
+            display: inline-block;
+            font-family: PingFang SC;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+            width: 100%;
+        }
+
+        .progress .num {
+            font-family: PingFang SC;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 40px;
+        }
+
+        .progress .text .num {
+            color: $themeColor6;
+            font-family: DIN Alternate;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .pro {
+            border-radius: 100px;
+            height: 8px;
+            margin-top: 14px;
+            position: relative;
+            width: 174px;
+
+            .now-pro {
+                background: $mapLayerTagColor;
+                border-radius: 100px;
+                height: 8px;
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        .no-box {
+            align-items: center;
+            color: rgba(0, 0, 0, .6);
+            display: flex;
+            display: flex;
+            font-family: PingFang SC;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            justify-content: space-between;
+            line-height: 40px;
+
+            .no-line {
+                background: rgba(0, 0, 0, .2);
+                height: 1px;
+                width: 24px;
+            }
+        }
+
+        .partner {
+            margin-top: 12px;
+
+            .partner-box {
+                align-items: center;
+                color: rgba(0, 0, 0, .6);
+                display: flex;
+                display: flex;
+                font-family: PingFang SC;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+                justify-content: space-between;
+                line-height: 40px;
+                margin-bottom: 13px;
+
+                .partner-line {
+                    background: rgba(0, 0, 0, .2);
+                    height: 1px;
+                    width: 39px;
+                }
+            }
+
+            .partner-logo {
+                display: block;
+                height: 43px;
+                margin: 0 auto 30px;
+                width: 174px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.left {
+    left: 42px;
+}
+
+.right {
+    right: 42px;
+}
+
+.btn {
+    // background: linear-gradient(1turn, var(--btnGradientColor1) 50%, var(--btnGradientColor2) 100%);
+    border-radius: 100px;
+    bottom: 88px;
+    color: $mainWhite;
+    font-family: PingFang SC;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    height: 96px;
+    left: 165px;
+    line-height: 96px;
+    text-align: center;
+    width: 420px;
+    z-index: 1;
+    position: absolute;
+}
+
+.textCanvas {
+    left: 0;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+.list-image {
+    background: hsla(0, 0%, 100%, .1);
+    border-radius: 120px;
+    flex: none;
+    flex-grow: 0;
+    height: 64px;
+    order: 0;
+    position: absolute;
+    right: 32px;
+    top: 208px;
+    width: 64px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes moveUpDown {
+    from {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveUpDown {
+    from {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveRightLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveRightLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}

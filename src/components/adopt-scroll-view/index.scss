@@ -1,0 +1,483 @@
+$mapLayerBgColor: var(--mapLayerBgColor);
+$mapLayerTagColor: var(--mapLayerTagColor);
+$mapLayerTextColor: var(--mapLayerTextColor);
+$themeColor6: var(--themeColor6);
+$btnGradientColor1: var(--btnGradientColor1);
+$btnGradientColor2: var(--btnGradientColor2);
+$mainWhite: var(--mainWhite);
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.map {
+    height: 100%;
+    position: relative;
+    width: 100vw;
+
+    .guide-box {
+        animation: fadeIn .5s linear;
+        animation-fill-mode: both;
+        background-color: rgba(0, 0, 0, .2);
+        box-sizing: border-box;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        z-index: 4;
+
+        .icon-guide {
+            height: 200rpx;
+            left: 50%;
+            margin-top: 60rpx;
+            opacity: 0;
+            position: absolute;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            transition: opacity .5s ease-out;
+            width: 400rpx;
+
+            .inner {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .guide-text {
+            color: #fff;
+            display: block;
+            font-size: 28rpx;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
+
+.box-image {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.msg-box,
+.msg-box .mask {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.show {
+    animation: fadeIn .5s linear both;
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.box {
+    backdrop-filter: blur(6rpx);
+    border: 2rpx solid hsla(0, 0%, 100%, .2);
+    border-radius: 12rpx;
+    overflow: hidden;
+    position: absolute;
+    top: 204rpx;
+    width: 222rpx;
+
+    .top-box {
+        position: relative;
+        width: 100%;
+
+        .bg-color {
+            background-color: $mapLayerBgColor;
+            left: 0;
+            opacity: .8;
+        }
+
+        .bg-color,
+        .bg-image {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .content {
+            height: 100%;
+            position: relative;
+            width: 100%;
+        }
+
+        .tag {
+            background: rgba(0, 0, 0, .2);
+            border-radius: 0 12rpx 0 12rpx;
+            height: 40rpx;
+            padding: 0 12rpx;
+            position: absolute;
+            right: 0rpx;
+            top: 0;
+        }
+
+        .content .name,
+        .tag {
+            font-family: PingFang SC;
+            font-size: 24rpx;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40rpx;
+        }
+
+        .content .name {
+            color: #fff;
+            padding-top: 24rpx;
+            text-align: center;
+        }
+
+        .content .verse-context {
+            margin-top: 24rpx;
+            padding-bottom: 48rpx;
+            width: 100%;
+        }
+
+        .content .verse-box {
+            display: -webkit-flex;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .content .verse {
+            border-right: 1rpx solid hsla(0, 0%, 100%, .2);
+            color: #fff;
+            font-family: FZYaSongS-R-GB;
+            font-size: 40rpx;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 8rpx;
+            line-height: 74rpx;
+            writing-mode: vertical-rl;
+        }
+
+        .content .verse:first-child {
+            border-left: 1rpx solid hsla(0, 0%, 100%, .2);
+        }
+
+        .content .verse2 .verse-left {
+            border-right: 1rpx solid hsla(0, 0%, 100%, .2);
+        }
+    }
+
+    .bottom-box {
+        background: #fcfcfc;
+        box-sizing: border-box;
+        padding: 16rpx 24rpx 32rpx;
+        width: 100%;
+
+        .price {
+            color: rgba(0, 0, 0, .6);
+            font-family: PingFang SC;
+            font-size: 24rpx;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40rpx;
+            margin: 0 auto;
+            width: -webkit-max-content;
+            width: max-content;
+        }
+
+        .price .num {
+            color: rgba(0, 0, 0, .9);
+            font-family: DIN Alternate;
+            font-size: 28rpx;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40rpx;
+        }
+
+        .price .unit {
+            color: rgba(0, 0, 0, .9);
+            font-family: PingFang SC;
+            font-size: 24rpx;
+            font-weight: 400;
+            line-height: 40rpx;
+        }
+
+        .progress {
+            align-items: center;
+            background: $mapLayerTagColor;
+            border-radius: 6rpx;
+            box-sizing: border-box;
+            display: -webkit-flex;
+            display: flex;
+            height: 44rpx;
+            line-height: 44rpx;
+            margin-top: 12rpx;
+            position: relative;
+            width: 174rpx;
+        }
+
+        .progress .triple {
+            border: 10rpx solid transparent;
+            border-top: 10rpx solid $mapLayerTagColor;
+            bottom: -19rpx;
+            height: 0;
+            left: 78rpx;
+            position: absolute;
+            width: 0;
+        }
+
+        .progress .pic {
+            height: 20rpx;
+            margin-right: 4rpx;
+        }
+
+        .progress .text {
+            color: $mapLayerTextColor;
+            display: inline-block;
+            font-family: PingFang SC;
+            font-size: 24rpx;
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+            width: 100%;
+        }
+
+        .progress .num {
+            font-family: PingFang SC;
+            font-size: 24rpx;
+            font-weight: 400;
+            line-height: 40rpx;
+        }
+
+        .progress .text .num {
+            color: $themeColor6;
+            font-family: DIN Alternate;
+            font-size: 24rpx;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40rpx;
+        }
+
+        .pro {
+            border-radius: 100rpx;
+            height: 8rpx;
+            margin-top: 14rpx;
+            position: relative;
+            width: 174rpx;
+
+            .now-pro {
+                background: $mapLayerTagColor;
+                border-radius: 100rpx;
+                height: 8rpx;
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        .no-box {
+            align-items: center;
+            color: rgba(0, 0, 0, .6);
+            display: -webkit-flex;
+            display: flex;
+            font-family: PingFang SC;
+            font-size: 24rpx;
+            font-style: normal;
+            font-weight: 400;
+            justify-content: space-between;
+            line-height: 40rpx;
+
+            .no-line {
+                background: rgba(0, 0, 0, .2);
+                height: 1rpx;
+                width: 24rpx;
+            }
+        }
+
+        .partner {
+            margin-top: 12rpx;
+
+            .partner-box {
+                align-items: center;
+                color: rgba(0, 0, 0, .6);
+                display: -webkit-flex;
+                display: flex;
+                font-family: PingFang SC;
+                font-size: 24rpx;
+                font-style: normal;
+                font-weight: 400;
+                justify-content: space-between;
+                line-height: 40rpx;
+                margin-bottom: 13rpx;
+
+                .partner-line {
+                    background: rgba(0, 0, 0, .2);
+                    height: 1rpx;
+                    width: 39rpx;
+                }
+            }
+
+            .partner-logo {
+                display: block;
+                height: 43rpx;
+                margin: 0 auto 30rpx;
+                width: 174rpx;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.left {
+    left: 42rpx;
+}
+
+.right {
+    right: 42rpx;
+}
+
+.btn {
+    background: linear-gradient(359deg, $btnGradientColor1 50%, $btnGradientColor2 100%);
+    border-radius: 100rpx;
+    bottom: 88rpx;
+    color: $mainWhite;
+    font-family: PingFang SC;
+    font-size: 32rpx;
+    font-style: normal;
+    font-weight: 500;
+    height: 96rpx;
+    left: 165rpx;
+    line-height: 96rpx;
+    text-align: center;
+    width: 420rpx;
+    z-index: 1;
+    position: absolute;
+}
+
+.textCanvas {
+    left: 0;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+.list-image {
+    background: hsla(0, 0%, 100%, .1);
+    border-radius: 120rpx;
+    flex: none;
+    flex-grow: 0;
+    height: 64rpx;
+    order: 0;
+    position: absolute;
+    right: 32rpx;
+    top: 208rpx;
+    width: 64rpx;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes moveUpDown {
+    from {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20rpx);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveUpDown {
+    from {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20rpx);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes moveRightLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-20rpx);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveRightLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-20rpx);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
