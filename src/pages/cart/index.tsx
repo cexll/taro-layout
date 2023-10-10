@@ -5,12 +5,12 @@ import Taro from '@tarojs/taro';
 import type CustomTabBar from '../../custom-tab-bar';
 
 export default class Index extends Component {
-    pageCtx = Taro.getCurrentInstance().page
+    // pageCtx = Taro.getCurrentInstance().page
 
-    componentDidShow() {
-        const tabbar = Taro.getTabBar<CustomTabBar>(this.pageCtx);
-        tabbar?.setSelected(2);
-    }
+    // componentDidShow() {
+    //     const tabbar = Taro.getTabBar<CustomTabBar>(this.pageCtx);
+    //     tabbar?.setSelected(2);
+    // }
 
     render() {
         return (

@@ -5,13 +5,13 @@ import { View } from "@tarojs/components";
 import { Calculator } from "@components";
 
 export default class Index extends Component {
-    pageCtx = Taro.getCurrentInstance().page
-    // systemInfo = Taro.getSystemInfoSync()
+    // pageCtx = Taro.getCurrentInstance().page
+    // // systemInfo = Taro.getSystemInfoSync()
 
-    componentDidShow() {
-        const tabbar = Taro.getTabBar<CustomTabBar>(this.pageCtx);
-        tabbar?.setSelected(0);
-    }
+    // componentDidShow() {
+    //     const tabbar = Taro.getTabBar<CustomTabBar>(this.pageCtx);
+    //     tabbar?.setSelected(0);
+    // }
 
     render() {
         return (
